@@ -137,10 +137,11 @@ export default function MutabaahApp() {
   });
 
   const [riyadhohHistory, setRiyadhohHistory] = useState<RiyadhohHistory[]>(
-    () => {
+    () => { if (typeof window !== "undefined") {
       const stored = localStorage.getItem("mutabaah-riyadhoh-history");
       return stored ? JSON.parse(stored) : [];
     }
+    return []; }
   );
 
   // Save to localStorage whenever amalan changes

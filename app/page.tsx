@@ -128,14 +128,13 @@ export default function MutabaahApp() {
   }, [dateKey]);
 
   // Load riyadhoh data
-const [riyadhohList, setRiyadhohList] = useState<Riyadhoh[]>(() => {
-  if (typeof window !== "undefined") {
-    const stored = localStorage.getItem("mutabaah-riyadhoh");
-    return stored ? JSON.parse(stored) : [];
-  }
-  return [];
-});
-
+  const [riyadhohList, setRiyadhohList] = useState<Riyadhoh[]>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("mutabaah-riyadhoh");
+      return stored ? JSON.parse(stored) : [];
+    }
+    return [];
+  });
 
   const [riyadhohHistory, setRiyadhohHistory] = useState<RiyadhohHistory[]>(
     () => {
@@ -379,7 +378,7 @@ const [riyadhohList, setRiyadhohList] = useState<Riyadhoh[]>(() => {
                   {amalanList.map((amalan) => (
                     <div
                       key={amalan.id}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-muted hover:bg-muted/60 transition-colors group"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-[#D1D5DB] hover:bg-muted/60 transition-colors group"
                     >
                       <button
                         onClick={() => toggleAmalan(amalan.id)}

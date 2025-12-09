@@ -128,10 +128,14 @@ export default function MutabaahApp() {
   }, [dateKey]);
 
   // Load riyadhoh data
-  const [riyadhohList, setRiyadhohList] = useState<Riyadhoh[]>(() => {
+const [riyadhohList, setRiyadhohList] = useState<Riyadhoh[]>(() => {
+  if (typeof window !== "undefined") {
     const stored = localStorage.getItem("mutabaah-riyadhoh");
     return stored ? JSON.parse(stored) : [];
-  });
+  }
+  return [];
+});
+
 
   const [riyadhohHistory, setRiyadhohHistory] = useState<RiyadhohHistory[]>(
     () => {
